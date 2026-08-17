@@ -6,4 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Build Hello WOrld
-       run: echo "Hello World...!!!"
+       run: |
+         echo "Hello WOrld...!!!"
+         echo "Welcome to Nayak's world..."
