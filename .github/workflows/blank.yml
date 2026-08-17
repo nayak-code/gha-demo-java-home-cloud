@@ -2,10 +2,23 @@ name: Hello world project
 
 on: workflow_dispatch
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-     - name: Build Hello WOrld
-       run: |
-         echo "Hello WOrld...!!!"
-         echo "Welcome to Nayak's world..."
+      - name: Build the code
+        run: echo "Building the code"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test the code after build
+        run: echo "Testing the code with junit"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the code in staging environment
+        run: | 
+          echo "Deploying the code for user acceptance"
+          echo "Dale..."
+  
