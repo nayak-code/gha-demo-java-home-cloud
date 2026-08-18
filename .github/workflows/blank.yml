@@ -1,11 +1,15 @@
 name: Hello world project
 
 on: 
- push:
+  push:
    branches:
      - main
      - develop
      - 'release/**'
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,17 +17,5 @@ jobs:
       - name: Build the code
         run: echo "Building the code"
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test the code after build
-        run: echo "Testing the code with junit"
 
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy the code in staging environment
-        run: | 
-          echo "Deploying the code for user acceptance"
-          echo "Dale..."
   
