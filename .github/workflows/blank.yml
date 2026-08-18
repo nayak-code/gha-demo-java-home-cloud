@@ -17,7 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build the code
-        run: echo "Building the code"
+        run: |
+          echo "Docker username is ${{ vars.DOCKER_USERNAME }}"
+          echo "Docker password is ${{ secrets.Docker_Password }}"
 
 
   
