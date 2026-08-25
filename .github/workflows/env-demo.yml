@@ -1,5 +1,5 @@
 name: Env demo pipeline
-on: workflow_dispatch
+on: push
 env:
   APP_ENV: "DEV"
 jobs:
@@ -10,5 +10,5 @@ jobs:
      steps:
        - name: Connecting to environments
          env:
-           APP_ENV: "PROD"
+           APP_ENV: "staging"
          run: echo "This app is for $APP_ENV envoronment"
