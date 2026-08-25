@@ -1,0 +1,10 @@
+name: Env demo pipeline
+on: workflow_dispatch
+env:
+  APP_ENV: "DEV"
+jobs:
+  env_demo:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Connecting to environments
+         run: echo "This app is for "APP_ENV" envoronment"
