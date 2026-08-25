@@ -9,4 +9,6 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Connecting to environments
+         env:
+           APP_ENV: "PROD"
          run: echo "This app is for $APP_ENV envoronment"
