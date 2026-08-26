@@ -1,7 +1,7 @@
 name: output demo for github actions
 on: push
 jobs:
-  job1:
+  build:
     runs-on: ubuntu:latest
     steps:
       - name: Step one for output
