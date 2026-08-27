@@ -1,0 +1,24 @@
+name: Build & Deploy pipeline
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: 
+      - opened
+      - synchronize
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Build step
+        run: echo "The application builds the artifact"
+
+  deploy:
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'push' && github.ref == 'main'
+    needs: build
+    steps:
+      - name: Deploy the application
+        run: echo "Application deployed on EKS Cluster"
