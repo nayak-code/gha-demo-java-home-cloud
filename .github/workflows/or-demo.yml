@@ -1,0 +1,9 @@
+name: or demo for github actions
+on: push
+jobs:
+  or-demo:
+     runs-on: ubuntu-22.04
+     steps:
+       - name: Run the pipeline for nayak-code or javahome
+         if: github.actor == 'javahome' || github.actor == 'nayak-code'
+         run: echo "It is either triggered by nayak-code or javahome"
