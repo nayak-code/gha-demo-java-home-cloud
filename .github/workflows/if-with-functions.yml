@@ -11,7 +11,9 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: Run quality checks
-              run: echo "Running quality checks on the codebase"
+              run: |
+                echo "Running quality checks on the codebase"
+                exit 0
 
     dev_deploy:
         if: github.ref_name == 'develop' && github.event_name == 'push'
@@ -34,3 +36,11 @@ jobs:
         steps:
             - name: Notify success
               run: echo "All jobs completed successfully"
+
+    failure_notify:
+        needs: [quality_checks, dev_deploy, prod_deploy]
+        if: failure()
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Notify failure
+              run: echo "One or more jobs failed"
